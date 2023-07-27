@@ -1,0 +1,5 @@
+[user]
+	email = foo@goo.com
+	name = Foo Goo
+[pull]
+	rebase = false

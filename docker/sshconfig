@@ -1,0 +1,6 @@
+Host ssh.dev.azure.com
+  ForwardAgent yes
+  HostkeyAlgorithms +ssh-rsa
+  PubkeyAcceptedAlgorithms +ssh-rsa
+Host gitlab.com
+    ForwardAgent yes

@@ -1,0 +1,38 @@
+source /etc/skel/.bashrc
+
+## commands relative to root of current git repository
+
+# navigate to root of repository
+alias cdg='cd "$(git rev-parse --show-cdup)"'
+
+# list files at root of repository
+alias lsg='ls "$(git rev-parse --show-cdup)"'
+
+# enable vi mode in the terminal
+# if you are not a vim user you may want to comment this out
+# set -o vi
+
+# git tab completion
+source ~/.git-completion.bash
+
+## uncomment if you want to get git status in the prompt
+## NB: it is slow
+# git prompt
+# source ~/.git-prompt.sh
+# export GIT_PS1_SHOWDIRTYSTATE="true"
+# export GIT_PS1_SHOWUNTRACKEDFILES="true"
+# export GIT_PS1_SHOWUPSTREAM="auto"
+# export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+
+export PATH=$PATH:$HOME/dotnet
+export DOTNET_ROOT=$HOME/dotnet
+
+# setup to avoid chrome errors
+
+# don't start in tmux sessions
+if [[ -z $TMUX ]]; then
+    sudo service dbus start
+    export XDG_RUNTIME_DIR=/run/user/1002
+    export DBUS_SESSION_BUS_ADDRESS=unix:path=$XDG_RUNTIME_DIR/bus
+    dbus-daemon --session --address=$DBUS_SESSION_BUS_ADDRESS --nofork --nopidfile --syslog-only &
+fi
