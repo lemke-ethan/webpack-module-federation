@@ -402,5 +402,9 @@
     //   "reviewCategory": "tools",
     //   "tags": [ "tools" ]
     // }
+    {
+      "packageName": "home",
+      "projectFolder": "apps/home"
+    }
   ]
 }
