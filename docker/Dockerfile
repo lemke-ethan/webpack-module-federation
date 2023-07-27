@@ -32,8 +32,8 @@ WORKDIR /home/devuser
 ENV TERM="xterm-256color"
 ADD https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash .git-completion.bash
 ADD https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh .git-prompt.sh
-COPY docker/bashrc .bashrc
-COPY docker/.gitconfig .gitconfig
+COPY bashrc .bashrc
+COPY .gitconfig .gitconfig
 RUN chown -R devuser /home/devuser
 # used by dbus/chrome
 RUN mkdir /run/user/1002
@@ -44,7 +44,7 @@ RUN mkdir -p -m 0700 ~/.ssh
 # Add public keys for well known repos
 RUN ssh-keyscan github.com >> ~/.ssh/known_hosts
 RUN ssh-keyscan ssh.dev.azure.com >> ~/.ssh/known_hosts
-COPY docker/sshconfig .ssh/config
+COPY sshconfig .ssh/config
 ENTRYPOINT bash
 
 FROM base AS ts-dev
@@ -58,11 +58,7 @@ RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | b
 && nvm install lts/gallium
 # mount the ssh-agent port as the current user for purposes of cloning private repos
 RUN --mount=type=ssh,uid=1002 git clone ${GIT_REPO} ${CLONE_DIR}
-RUN . ~/.nvm/nvm.sh && npm install -g @microsoft/rush
 WORKDIR /home/devuser/${CLONE_DIR}
-RUN rush install
-# needed to work around a quirk in our repo where rush install generates a non-ignored script file
-RUN git reset --hard
 # deps for webkit browser
 RUN sudo apt-get update && sudo apt-get install -y gstreamer1.0-gl gstreamer1.0-plugins-ugly
 VOLUME /home/devuser/$CLONE_DIR
