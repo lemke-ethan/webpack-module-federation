@@ -58,6 +58,7 @@ RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | b
 && nvm install lts/gallium
 # mount the ssh-agent port as the current user for purposes of cloning private repos
 RUN --mount=type=ssh,uid=1002 git clone ${GIT_REPO} ${CLONE_DIR}
+RUN . ~/.nvm/nvm.sh && npm install -g @microsoft/rush
 WORKDIR /home/devuser/${CLONE_DIR}
 # deps for webkit browser
 RUN sudo apt-get update && sudo apt-get install -y gstreamer1.0-gl gstreamer1.0-plugins-ugly
