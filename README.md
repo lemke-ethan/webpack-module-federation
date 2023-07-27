@@ -3,7 +3,7 @@
 Exploring module federation in webpack
 
 
-todos
+## todos
 
 1. create two react webpack apps: home and pdp
 1. export (default export) a header component from the home app
@@ -18,3 +18,7 @@ todos
 1. add header and footer to pdp App.tsx using `home/Header` as the import path
 
 should now have a runtime connection between the two apps
+
+## Gotchas
+
+- [uncaught-error-shared-module-is-not-available-for-eager-consumption](https://webpack.js.org/concepts/module-federation/#uncaught-error-shared-module-is-not-available-for-eager-consumption)
