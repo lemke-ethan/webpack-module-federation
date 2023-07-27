@@ -1,5 +1,9 @@
 docker/.gitconfig
 
+# react apps
+lib/
+dist/
+
 # Logs
 *.log
 npm-debug.log*
