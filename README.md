@@ -1,7 +1,6 @@
 # webpack-module-federation
 
-Exploring module federation in webpack
-
+Exploring module federation in webpack. [Check out this video](https://www.youtube.com/watch?v=lKKsjpH09dU).
 
 ## todos
 
@@ -19,6 +18,19 @@ Exploring module federation in webpack
 
 should now have a runtime connection between the two apps
 
+## home package
+
+A simple package for the home page of a hypothetical application.
+
+Uses babel to transpile the TS and compile the code over ts-loader.
+
 ## Gotchas
 
 - [uncaught-error-shared-module-is-not-available-for-eager-consumption](https://webpack.js.org/concepts/module-federation/#uncaught-error-shared-module-is-not-available-for-eager-consumption)
+
+## why module federation
+
+Webpack 5+ supports module federation.
+
+It can be applied to many frontend frameworks.
+
