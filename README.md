@@ -109,3 +109,56 @@ Uses babel to transpile the TS and compile the code over ts-loader.
 ## Gotchas
 
 - [uncaught-error-shared-module-is-not-available-for-eager-consumption](https://webpack.js.org/concepts/module-federation/#uncaught-error-shared-module-is-not-available-for-eager-consumption)
+- im getting this error in a component module without an import and just an export of the component function
+
+```text
+'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.ts(2686)
+```
+
+- got this on first try of exposing the header and footer from the home package
+
+```text
+Module not found: Error: Can't resolve './scr/Header.tsx' in '/home/devuser/webpack-module-federation/apps/home'
+resolve './scr/Header.tsx' in '/home/devuser/webpack-module-federation/apps/home'
+  using description file: /home/devuser/webpack-module-federation/apps/home/package.json (relative path: .)
+    Field 'browser' doesn't contain a valid alias configuration
+    using description file: /home/devuser/webpack-module-federation/apps/home/package.json (relative path: ./scr/Header.tsx)
+      no extension
+        Field 'browser' doesn't contain a valid alias configuration
+        /home/devuser/webpack-module-federation/apps/home/scr/Header.tsx doesn't exist
+      .tsx
+        Field 'browser' doesn't contain a valid alias configuration
+        /home/devuser/webpack-module-federation/apps/home/scr/Header.tsx.tsx doesn't exist
+      .ts
+        Field 'browser' doesn't contain a valid alias configuration
+        /home/devuser/webpack-module-federation/apps/home/scr/Header.tsx.ts doesn't exist
+      .js
+        Field 'browser' doesn't contain a valid alias configuration
+        /home/devuser/webpack-module-federation/apps/home/scr/Header.tsx.js doesn't exist
+      .json
+        Field 'browser' doesn't contain a valid alias configuration
+        /home/devuser/webpack-module-federation/apps/home/scr/Header.tsx.json doesn't exist
+      as directory
+        /home/devuser/webpack-module-federation/apps/home/scr/Header.tsx doesn't exist
+```
+
+```js
+// apps/home/webpack.config.js
+// ...
+  plugins: [
+    new ModuleFederationPlugin({
+      name: "home",
+      filename: "remoteEntry.js",
+      remotes: {
+      },
+      exposes: {
+        "./Header":"./scr/Header.tsx",
+        "./Footer":"./scr/Footer.tsx"
+      },
+// ...
+```
+
+- i checked all css and component imports
+- i tried using different paths in the wp mf config
+- it seems to be coming from exposing the module in wp mf
+- the full path to the header component module matches the no extension path in the error

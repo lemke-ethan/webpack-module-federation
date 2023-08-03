@@ -42,6 +42,7 @@ module.exports = {
       remotes: {
       },
       exposes: {
+        "./Header": "./scr/Header"
       },
       shared: {
         ...deps,
