@@ -405,6 +405,10 @@
     {
       "packageName": "home",
       "projectFolder": "apps/home"
+    },
+    {
+      "packageName": "pdp",
+      "projectFolder": "apps/pdp"
     }
   ]
 }
