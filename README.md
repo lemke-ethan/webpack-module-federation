@@ -162,3 +162,4 @@ resolve './scr/Header.tsx' in '/home/devuser/webpack-module-federation/apps/home
 - i tried using different paths in the wp mf config
 - it seems to be coming from exposing the module in wp mf
 - the full path to the header component module matches the no extension path in the error
+- i found [this post](https://github.com/module-federation/module-federation-examples/issues/760)
