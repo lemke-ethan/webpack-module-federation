@@ -215,3 +215,4 @@ resolve './scr/Header.tsx' in '/home/devuser/webpack-module-federation/apps/home
 - getting a `Cannot find module 'home/Footer' or its corresponding type declarations.ts(2307)` error when trying to import the remote home federated modules
   - <https://stackoverflow.com/a/73177138>: ts doesn't know so it needs types from somewhere
   - can declare the types, but the best thing to do would be to make another library for types that can be shared
+- new packages in the monorepo need to be committed before they can be added to the monorepo with rush update
