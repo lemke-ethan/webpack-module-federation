@@ -38,9 +38,11 @@ module.exports = {
 
   plugins: [
     new ModuleFederationPlugin({
+      // needs to meet js variable name restrictions
       name: "pdp",
       filename: "remoteEntry.js",
       remotes: {
+        home: `home@${process.env.PDP_HOME_REMOTE_ENTRY_URL}`
       },
       exposes: {
       },
