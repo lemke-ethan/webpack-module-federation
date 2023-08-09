@@ -1,10 +1,14 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
+import { Header } from "home/Header";
+import { Footer } from "home/Footer";
 
 function App() {
     return (
         <div className="app">
+            <Header />
             <div>PDP</div>
+            <Footer />
         </div>
     )
 }

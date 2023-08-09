@@ -212,3 +212,6 @@ resolve './scr/Header.tsx' in '/home/devuser/webpack-module-federation/apps/home
    ```
 
    - `src` in the webpack expose path was wrong (i.e. it was `scr`)
+- getting a `Cannot find module 'home/Footer' or its corresponding type declarations.ts(2307)` error when trying to import the remote home federated modules
+  - <https://stackoverflow.com/a/73177138>: ts doesn't know so it needs types from somewhere
+  - can declare the types, but the best thing to do would be to make another library for types that can be shared
