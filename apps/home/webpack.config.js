@@ -1,16 +1,17 @@
+require('dotenv').config()
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 
 const deps = require("./package.json").dependencies;
 module.exports = {
   output: {
-    publicPath: "http://localhost:3000/",
+    publicPath: `http://localhost:${process.env.HOME_PORT}/`,
   },
   resolve: {
     extensions: [".tsx", ".ts", ".js", ".json"],
   },
   devServer: {
-    port: 3000,
+    port: process.env.HOME_PORT,
     historyApiFallback: true,
   },
   module: {
