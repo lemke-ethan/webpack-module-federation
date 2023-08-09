@@ -164,3 +164,51 @@ resolve './scr/Header.tsx' in '/home/devuser/webpack-module-federation/apps/home
 - the full path to the header component module matches the no extension path in the error
 - i found [this post](https://github.com/module-federation/module-federation-examples/issues/760)
 - i tried default module export of header component and that did not work
+- looking at the remoteEntry.js file now
+  - search for `"webpack/container/entry/home"`
+  - created a `Foo` component that is the only component exposed, without a stylesheet
+  - searching for `foo` in the remote entry source 
+
+   ```js
+   eval("var moduleMap = {\n\t\"./Foo\": () => {\n\t\tvar e = new Error(\"Cannot find module './scr/Foo'\"); e.code = 'MODULE_NOT_FOUND'; throw e;\n\t}\n};\nvar get = (module, getScope) => {\n\t__webpack_require__.R = getScope;\n\tgetScope = (\n\t\t__webpack_require__.o(moduleMap, module)\n\t\t\t? moduleMap[module]()\n\t\t\t: Promise.resolve().then(() => {\n\t\t\t\tthrow new Error('Module \"' + module + '\" does not exist in container.');\n\t\t\t})\n\t);\n\t__webpack_require__.R = undefined;\n\treturn getScope;\n};\nvar init = (shareScope, initScope) => {\n\tif (!__webpack_require__.S) return;\n\tvar name = \"default\"\n\tvar oldScope = __webpack_require__.S[name];\n\tif(oldScope && oldScope !== shareScope) throw new Error(\"Container initialization failed as it has already been initialized with a different share scope\");\n\t__webpack_require__.S[name] = shareScope;\n\treturn __webpack_require__.I(name, initScope);\n};\n\n// This exports getters to disallow modifications\n__webpack_require__.d(exports, {\n\tget: () => (get),\n\tinit: () => (init)\n});\n\n//# sourceURL=webpack://home/container_entry?");
+   ```
+
+   - the output of this eval
+
+   ```js
+   var moduleMap = {
+      "./Foo": () => {
+         var e = new Error("Cannot find module './scr/Foo'");
+         e.code = 'MODULE_NOT_FOUND';
+         throw e;
+      }
+   };
+   var get = (module, getScope) => {
+      __webpack_require__.R = getScope;
+      getScope = (
+         __webpack_require__.o(moduleMap, module) ?
+         moduleMap[module]() :
+         Promise.resolve().then(() => {
+               throw new Error('Module "' + module + '" does not exist in container.');
+         })
+      );
+      __webpack_require__.R = undefined;
+      return getScope;
+   };
+   var init = (shareScope, initScope) => {
+      if (!__webpack_require__.S) return;
+      var name = "default"
+      var oldScope = __webpack_require__.S[name];
+      if (oldScope && oldScope !== shareScope) throw new Error("Container initialization failed as it has already been initialized with a different share scope");
+      __webpack_require__.S[name] = shareScope;
+      return __webpack_require__.I(name, initScope);
+   };
+   // This exports getters to disallow modifications
+   __webpack_require__.d(exports, {
+      get: () => (get),
+      init: () => (init)
+   });
+   //# sourceURL=webpack://home/container_entry?
+   ```
+
+   - `src` in the webpack expose path was wrong (i.e. it was `scr`)
