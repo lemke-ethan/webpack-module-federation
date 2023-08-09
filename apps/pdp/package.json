@@ -7,7 +7,7 @@
         "build:types": "tsc --emitDeclarationOnly",
         "build": "webpack --mode production",
         "build:dev": "webpack --mode development",
-        "build:start": "cd dist && PORT=3000 npx serve",
+        "build:start": "cd dist && PORT=3001 npx serve",
         "start": "webpack serve --open --mode development",
         "start:live": "webpack serve --open --mode development --live-reload --hot"
     },
@@ -30,7 +30,8 @@
         "@types/react": "^18.2.17",
         "@types/react-dom": "^18.2.7",
         "typescript": "^5.1.6",
-        "serve": "^14.2.0"
+        "serve": "^14.2.0",
+        "dotenv": "^16.3.1"
     },
     "dependencies": {
         "@babel/runtime": "^7.13.10",
