@@ -38,6 +38,7 @@ module.exports = {
 
   plugins: [
     new ModuleFederationPlugin({
+      // needs to meet js variable name restrictions
       name: "home",
       filename: "remoteEntry.js",
       remotes: {
