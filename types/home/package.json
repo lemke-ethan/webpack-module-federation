@@ -1,0 +1,17 @@
+{
+    "name": "@types/home",
+    "version": "1.0.0",
+    "description": "Types for home's federated modules.",
+    "scripts": {
+        "type-check": "tsc --noEmit",
+        "type-check:watch": "npm run type-check -- --watch",
+        "build": "tsc"
+    },
+    "license": "MIT",
+    "devDependencies": {
+        "@types/react": "^18.2.17",
+        "@types/react-dom": "^18.2.7",
+        "typescript": "^5.1.6"
+    },
+    "dependencies": {}
+}
