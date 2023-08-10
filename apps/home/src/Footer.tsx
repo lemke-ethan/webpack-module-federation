@@ -1,7 +1,8 @@
 import "./styles/Footer.css"
-import React, { ReactElement } from "react"
+import React from "react"
+import { FooterComponent } from "home"
 
-export function Footer(): ReactElement {
+export const Footer: FooterComponent = () => {
     return (
         <div className="footer">
             Only the best spinners

@@ -216,3 +216,11 @@ resolve './scr/Header.tsx' in '/home/devuser/webpack-module-federation/apps/home
   - <https://stackoverflow.com/a/73177138>: ts doesn't know so it needs types from somewhere
   - can declare the types, but the best thing to do would be to make another library for types that can be shared
 - new packages in the monorepo need to be committed before they can be added to the monorepo with rush update
+- there are no types for the imported header/footer in the pdp app, so TS complains at the imports
+  - `Cannot find module 'home/Header' or its corresponding type declarations.ts(2307)` and similarly for the footer
+  - <https://www.typescriptlang.org/docs/handbook/namespaces-and-modules.html#-reference-ing-a-module>
+  - <https://spin.atomicobject.com/2022/07/19/typescript-federated-modules/>
+  - even if I could create a types package for the federated modules from apps/home, it wouldn't matter because apps/pdp sets up the import path root, which could change
+  - what about a package consumed by both the consumer and producer of the federated modules that includes the types as well as the constants for the webpack configurations? I think the only problem is the `declare module` portion. how do you export that for the consumer?
+  - <https://github.com/module-federation/module-federation-examples/issues/20#issuecomment-846122594>
+  - declare the exported functions, export the types of those declarations, export a string const for the producing package name, then use that package in the consumer and producer

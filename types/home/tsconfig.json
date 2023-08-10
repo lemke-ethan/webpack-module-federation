@@ -5,13 +5,13 @@
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
         "module": "CommonJS",
-        "moduleResolution": "node",
+        "moduleResolution": "NodeNext",
         "lib": [
             "dom",
             "esnext"
         ],
         "strict": true,
-        "target": "ESNext",
+        "target": "ES5",
     },
     "include": [
         "src"

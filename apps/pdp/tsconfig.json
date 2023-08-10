@@ -16,12 +16,12 @@
         "target": "ESNext",
         "paths": {
             "home/Header": [
-                "./node_modules/@types/home/lib/"
+                "./node_modules/@types/home/lib/index.d.ts"
             ],
             "home/Footer": [
-                "./node_modules/@types/home/lib/"
+                "./node_modules/@types/home/lib/index.d.ts"
             ]
-        }
+        },
     },
     "include": [
         "./src"
