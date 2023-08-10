@@ -7,9 +7,9 @@ import { Footer } from "./Footer";
 function App() {
     return (
         <div className="app">
-            <Header />
+            <Header subHeader="home" />
             <div className="content">Home page content</div>
-            <Footer />
+            <Footer copyright="F-Spinners 2023" />
         </div>
     )
 }

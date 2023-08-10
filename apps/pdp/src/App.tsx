@@ -6,9 +6,9 @@ import { Footer } from "home/Footer";
 function App() {
     return (
         <div className="app">
-            <Header />
+            <Header subHeader="PDP" />
             <div>PDP</div>
-            <Footer />
+            <Footer copyright="2023" />
         </div>
     )
 }
