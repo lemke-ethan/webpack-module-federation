@@ -2,6 +2,8 @@
 
 Exploring module federation in webpack. [Check out this video](https://www.youtube.com/watch?v=lKKsjpH09dU).
 
+- why not just move header and footer into a shared package in the monorepo and expose it via federated modules from home?
+
 ## why module federation
 
 Webpack 5+ supports module federation.
