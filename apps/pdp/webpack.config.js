@@ -1,8 +1,8 @@
 require('dotenv').config()
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
+const { packageNamespace } = require("@types/home")
 
-const deps = require("./package.json").dependencies;
 module.exports = {
   output: {
     publicPath: `http://localhost:${process.env.PDP_PORT}/`,
@@ -42,20 +42,14 @@ module.exports = {
       name: "pdp",
       filename: "remoteEntry.js",
       remotes: {
-        home: `home@${process.env.PDP_HOME_REMOTE_ENTRY_URL}`
+        // the key is used in the import statement for this package
+        // the first part of the value needs to match the name of the mf plugin of home
+        // the second part of the value needs to be the URL to the remoteEntry.js file
+        home: `${packageNamespace}@${process.env.PDP_HOME_REMOTE_ENTRY_URL}`
       },
       exposes: {
       },
       shared: {
-        ...deps,
-        react: {
-          singleton: true,
-          requiredVersion: deps.react,
-        },
-        "react-dom": {
-          singleton: true,
-          requiredVersion: deps["react-dom"],
-        },
       },
     }),
     new HtmlWebPackPlugin({

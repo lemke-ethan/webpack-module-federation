@@ -1,6 +1,7 @@
 require('dotenv').config()
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
+const { packageNamespace } = require("@types/home")
 
 const deps = require("./package.json").dependencies;
 module.exports = {
@@ -39,7 +40,7 @@ module.exports = {
   plugins: [
     new ModuleFederationPlugin({
       // needs to meet js variable name restrictions
-      name: "home",
+      name: packageNamespace,
       filename: "remoteEntry.js",
       remotes: {
       },
