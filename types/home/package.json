@@ -2,8 +2,9 @@
     "name": "@types/home",
     "version": "1.0.0",
     "description": "Types for home's federated modules.",
+    "types": "./lib/index.d.ts",
     "scripts": {
-        "build": "tsc"
+        "build": "tsc -p ./tsconfig.json"
     },
     "license": "MIT",
     "devDependencies": {

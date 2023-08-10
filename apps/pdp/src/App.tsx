@@ -1,6 +1,5 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-// TODO: https://stackoverflow.com/questions/71311933/microfrontend-cannot-find-module-error-for-module-federation/73177138#73177138
 import { Header } from "home/Header";
 import { Footer } from "home/Footer";
 
