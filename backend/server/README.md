@@ -1,8 +1,6 @@
 # server
 
-[Static file server](https://docs.nestjs.com/recipes/serve-static). The server expects the static assets to be in `./public`.
-
-TODO: add JWT auth
+[Static file server](https://docs.nestjs.com/recipes/serve-static) that uses [JWT auth](https://docs.nestjs.com/security/authentication). The server expects the static assets to be in `./public`.
 
 ## scripts
 
