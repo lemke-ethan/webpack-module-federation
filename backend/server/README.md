@@ -1,5 +1,9 @@
 # server
 
+[Static file server](https://docs.nestjs.com/recipes/serve-static). The server expects the static assets to be in `./public`.
+
+TODO: add JWT auth
+
 ## scripts
 
 - `start`: start the server in development mode
