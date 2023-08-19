@@ -413,6 +413,10 @@
     {
       "packageName": "@types/home",
       "projectFolder": "types/home"
+    },
+    {
+      "packageName": "server",
+      "projectFolder": "backend/server"
     }
   ]
 }
