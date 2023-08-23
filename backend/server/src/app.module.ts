@@ -5,6 +5,7 @@ import { join } from 'path';
 import { AppController } from './app.controller';
 import { AuthModule } from './auth/auth.module';
 import { UsersService } from './users/users.service';
+import { ProductsModule } from './modules/products/products.module';
 
 @Module({
   controllers: [AppController],
@@ -14,6 +15,7 @@ import { UsersService } from './users/users.service';
       rootPath: join(__dirname, '..', 'public'),
     }),
     AuthModule,
+    ProductsModule
   ],
 })
 export class AppModule { }
