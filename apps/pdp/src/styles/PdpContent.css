@@ -1,0 +1,8 @@
+.pdp-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.pdp-content .product-image {
+    width: 100%;
+}
