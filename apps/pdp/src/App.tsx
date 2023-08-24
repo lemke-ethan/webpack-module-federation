@@ -2,12 +2,15 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { Header } from "home/Header";
 import { Footer } from "home/Footer";
+import { PdpContent } from "./PdpContent";
 
 function App() {
     return (
         <div className="app">
             <Header subHeader="PDP" />
-            <div>PDP</div>
+            <div className="content">
+                <PdpContent />
+            </div>
             <Footer copyright="2023" />
         </div>
     )
