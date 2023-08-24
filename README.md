@@ -4,6 +4,16 @@ Exploring module federation in webpack. [Check out this video](https://www.youtu
 
 - why not just move header and footer into a shared package in the monorepo and expose it via federated modules from home?
 
+## expose a federated module
+
+1. add all the types from the exported module to the respective types package
+2. open the respective package's webpack config
+3. add the module to the collection of exposed modules
+4. open the module in the respective package and update the types to use the types exported from the respective types package
+5. open the consumer package's ts config
+6. add a path map for the federated module
+7. import and user your federated module in your consumer package
+
 ## why module federation
 
 Webpack 5+ supports module federation.

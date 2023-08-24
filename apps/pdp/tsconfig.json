@@ -20,6 +20,9 @@
             ],
             "home/Footer": [
                 "./node_modules/@types/home/lib/index.d.ts"
+            ],
+            "home/products": [
+                "./node_modules/@types/home/lib/index.d.ts"
             ]
         },
     },
