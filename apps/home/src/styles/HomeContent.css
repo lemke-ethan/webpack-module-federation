@@ -1,0 +1,17 @@
+.home-content {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px 0;
+    height: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+.home-content .product {
+    flex-basis: calc(25% - 10px);
+    padding: 5px;
+}
+
+.home-content .product .product-image {
+    width: 100%;
+}

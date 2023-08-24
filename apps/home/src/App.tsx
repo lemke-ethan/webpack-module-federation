@@ -3,12 +3,15 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
+import { HomeContent } from "./HomeContent";
 
 function App() {
     return (
         <div className="app">
             <Header subHeader="home" />
-            <div className="content">Home page content</div>
+            <div className="content">
+                <HomeContent />
+            </div>
             <Footer copyright="F-Spinners 2023" />
         </div>
     )

@@ -22,5 +22,7 @@ body {
 }
 
 .app .content {
-    margin: 20px 0;
+    flex: 1;
+    background-color: #fff;
+    width: 100%;
 }
