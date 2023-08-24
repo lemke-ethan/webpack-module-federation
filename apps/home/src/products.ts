@@ -1,18 +1,18 @@
-import { IProduct } from "server"
+import { GetProductById, GetProducts, Currency } from "home"
 
 const API_SERVER = "http://localhost:8080"
 
-export async function getProducts(): Promise<IProduct[]> {
+export const getProducts: GetProducts = async () => {
     const response = await fetch(`${API_SERVER}/products`)
     return await response.json()
 }
 
-export async function getProductById(id: number): Promise<IProduct> {
+export const getProductById: GetProductById = async (id) => {
     const response = await fetch(`${API_SERVER}/products/${id}`)
     return await response.json()
 }
 
-export const currency = new Intl.NumberFormat(
+export const currency: Currency = new Intl.NumberFormat(
     "en-US",
     {
         style: "currency",

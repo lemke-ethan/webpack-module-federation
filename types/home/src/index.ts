@@ -5,3 +5,5 @@ export declare function Footer(props: { copyright: string }): ReactElement
 export type HeaderComponent = typeof Header
 export type FooterComponent = typeof Footer
 export const packageNamespace = "home"
+
+export { getProductById, getProducts, currency, GetProductById, GetProducts, Currency } from "./products"
