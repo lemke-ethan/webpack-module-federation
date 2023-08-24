@@ -417,6 +417,10 @@
     {
       "packageName": "server",
       "projectFolder": "backend/server"
+    },
+    {
+      "packageName": "@types/server",
+      "projectFolder": "types/server"
     }
   ]
 }
