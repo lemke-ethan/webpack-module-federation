@@ -3,6 +3,16 @@ import { createRoot } from "react-dom/client";
 import { Header } from "home/Header";
 import { Footer } from "home/Footer";
 import { PdpContent } from "./PdpContent";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { loader } from "./routes/pdpContent";
+
+const router = createBrowserRouter([
+    {
+        path: "/product/:id",
+        element: <App />,
+        loader: loader
+    }
+]);
 
 function App() {
     return (
@@ -23,6 +33,6 @@ if (rootElement === null) {
 const root = createRoot(rootElement);
 root.render(
     <React.StrictMode>
-        <App />
+        <RouterProvider router={router} />
     </React.StrictMode>
 );

@@ -2,9 +2,11 @@ import "./styles/PdpContent.css"
 import React, { useEffect, useState } from "react"
 import { getProductById, currency } from "home/products";
 import { IProduct } from "server";
+import { useLoaderData } from "react-router-dom";
 
 export function PdpContent() {
-    const productId = 1
+    // TODO: finish getting the route params, validating them and using them
+    const productId = useLoaderData()
     const [product, setProduct] = useState<IProduct | null>(null)
 
     useEffect(() => {
