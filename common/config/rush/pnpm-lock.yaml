@@ -131,6 +131,7 @@ importers:
       '@types/express': ^4.17.17
       '@types/jest': ^29.5.2
       '@types/node': ^20.3.1
+      '@types/server': workspace:*
       '@types/supertest': ^2.0.12
       jest: ^29.5.0
       passport: ^0.6.0
@@ -166,6 +167,7 @@ importers:
       '@types/express': 4.17.17
       '@types/jest': 29.5.3
       '@types/node': 20.4.5
+      '@types/server': link:../../types/server
       '@types/supertest': 2.0.12
       jest: 29.6.2_ca3e190b98fc582aef91a96998dcb513
       source-map-support: 0.5.21

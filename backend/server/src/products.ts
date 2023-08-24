@@ -1,13 +1,6 @@
-export interface Product {
-  id: number;
-  name: string;
-  price: number;
-  description: string;
-  image: string;
-  longDescription: string;
-}
+import { IProduct } from "server";
 
-const products: Product[] = [
+const products: IProduct[] = [
   {
     id: 1,
     name: 'Wheel Spinner',

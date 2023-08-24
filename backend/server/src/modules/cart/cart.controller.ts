@@ -8,18 +8,10 @@ import {
   Delete,
 } from '@nestjs/common';
 import { JwtAuthGuard } from '../../auth/jwt-auth.guard';
+import products from '../../products';
+import { ICart } from 'server';
 
-import products, { Product } from '../../products';
-
-interface CartItem extends Product {
-  quantity: number;
-}
-
-interface Cart {
-  cartItems: CartItem[];
-}
-
-const initialCart = (indexes: number[]): Cart => ({
+const initialCart = (indexes: number[]): ICart => ({
   cartItems: indexes.map((index) => ({
     ...products[index],
     quantity: 1,
@@ -28,22 +20,22 @@ const initialCart = (indexes: number[]): Cart => ({
 
 @Controller('cart')
 export class CartController {
-  private carts: Record<number, Cart> = {
+  private carts: Record<number, ICart> = {
     1: initialCart([0, 2, 4]),
     2: initialCart([1, 3]),
   };
 
-  constructor() {}
+  constructor() { }
 
   @Get()
   @UseGuards(JwtAuthGuard)
-  async index(@Request() req): Promise<Cart> {
+  async index(@Request() req): Promise<ICart> {
     return this.carts[req.user.userId] ?? { cartItems: [] };
   }
 
   @Post()
   @UseGuards(JwtAuthGuard)
-  async create(@Request() req, @Body() { id }: { id: string }): Promise<Cart> {
+  async create(@Request() req, @Body() { id }: { id: string }): Promise<ICart> {
     const cart = this.carts[req.user.userId];
     const cartItem = cart.cartItems.find(
       (cartItem) => cartItem.id === parseInt(id),
@@ -61,7 +53,7 @@ export class CartController {
 
   @Delete()
   @UseGuards(JwtAuthGuard)
-  async destroy(@Request() req): Promise<Cart> {
+  async destroy(@Request() req): Promise<ICart> {
     this.carts[req.user.userId] = { cartItems: [] };
     return this.carts[req.user.userId];
   }
