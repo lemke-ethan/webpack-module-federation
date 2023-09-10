@@ -4,6 +4,11 @@ Exploring module federation in webpack. [Check out this video](https://www.youtu
 
 - why not just move header and footer into a shared package in the monorepo and expose it via federated modules from home?
 
+## Terms
+
+- `remote`: The package that is exposing some MF content (e.g. function, constant, ...). e.g. `apps/home` is the remote for the `Header` component.
+- `host`: The package that is consuming MF content from another package. e.g. `apps/pdp` is hosting the `Header` that is remoted in from `apps/home`.
+
 ## expose a federated module
 
 1. add all the types from the exported module to the respective types package
