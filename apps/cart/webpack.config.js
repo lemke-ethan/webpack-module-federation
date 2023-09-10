@@ -41,7 +41,7 @@ module.exports = {
   plugins: [
     new ModuleFederationPlugin({
       // needs to meet js variable name restrictions
-      name: "pdp",
+      name: cartPackageNamespace,
       filename: "remoteEntry.js",
       remotes: {
         // the key is used in the import statement for this package
