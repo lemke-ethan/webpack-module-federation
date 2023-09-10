@@ -411,6 +411,10 @@
       "projectFolder": "apps/pdp"
     },
     {
+      "packageName": "cart",
+      "projectFolder": "apps/cart"
+    },
+    {
       "packageName": "@types/home",
       "projectFolder": "types/home"
     },

@@ -1,0 +1,35 @@
+{
+    "compilerOptions": {
+        "outDir": "lib",
+        "declaration": true,
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "jsx": "react",
+        "module": "esnext",
+        "moduleResolution": "node",
+        "lib": [
+            "dom",
+            "esnext"
+        ],
+        "strict": true,
+        "sourceMap": true,
+        "target": "ESNext",
+        "paths": {
+            "home/Header": [
+                "./node_modules/@types/home/lib/index.d.ts"
+            ],
+            "home/Footer": [
+                "./node_modules/@types/home/lib/index.d.ts"
+            ],
+            "home/products": [
+                "./node_modules/@types/home/lib/index.d.ts"
+            ]
+        },
+    },
+    "include": [
+        "./src"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}
