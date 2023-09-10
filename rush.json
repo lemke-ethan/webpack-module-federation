@@ -421,6 +421,10 @@
     {
       "packageName": "@types/server",
       "projectFolder": "types/server"
+    },
+    {
+      "packageName": "@wmf/type-guards",
+      "projectFolder": "utils/type-guards"
     }
   ]
 }

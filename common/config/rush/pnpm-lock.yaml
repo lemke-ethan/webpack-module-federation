@@ -203,6 +203,18 @@ importers:
       rimraf: 5.0.1
       typescript: 5.1.6
 
+  ../../utils/type-guards:
+    specifiers:
+      '@types/home': workspace:*
+      '@types/server': workspace:*
+      rimraf: ^5.0.1
+      typescript: ^5.1.6
+    devDependencies:
+      '@types/home': link:../../types/home
+      '@types/server': link:../../types/server
+      rimraf: 5.0.1
+      typescript: 5.1.6
+
 packages:
 
   /@ampproject/remapping/2.2.1:

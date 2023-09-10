@@ -1,0 +1,18 @@
+{
+    "name": "@wmf/type-guards",
+    "version": "1.0.0",
+    "description": "Type guards for all workspace types.",
+    "types": "./lib/index.d.ts",
+    "main": "./lib/index.js",
+    "type": "module",
+    "scripts": {
+        "build": "npx rimraf ./lib/ && tsc -p ./tsconfig.json"
+    },
+    "license": "MIT",
+    "devDependencies": {
+        "@types/home": "workspace:*",
+        "@types/server": "workspace:*",
+        "typescript": "^5.1.6",
+        "rimraf": "^5.0.1"
+    }
+}
