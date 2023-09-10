@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import { Header } from "home/Header";
 import { Footer } from "home/Footer";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { CartContent } from "./CartContent";
 
 const router = createBrowserRouter([
     {
@@ -16,7 +17,7 @@ function App() {
         <div className="app">
             <Header subHeader="Cart" />
             <div className="content">
-                Cart
+                <CartContent />
             </div>
             <Footer copyright="2023" />
         </div>
