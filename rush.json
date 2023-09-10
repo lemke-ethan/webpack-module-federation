@@ -419,6 +419,10 @@
       "projectFolder": "types/home"
     },
     {
+      "packageName": "@types/cart",
+      "projectFolder": "types/cart"
+    },
+    {
       "packageName": "server",
       "projectFolder": "backend/server"
     },
