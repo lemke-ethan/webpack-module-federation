@@ -1,27 +1,14 @@
 import "./styles/PdpContent.css"
-import React, { useEffect, useState } from "react"
-import { getProductById, currency } from "home/products";
+import React from "react"
+import { currency } from "home/products";
 import { IProduct } from "server";
 import { useLoaderData } from "react-router-dom";
+import { isIProduct } from "@wmf/type-guards";
 
 export function PdpContent() {
-    // TODO: finish getting the route params, validating them and using them
-    const productId = useLoaderData()
-    const [product, setProduct] = useState<IProduct | null>(null)
+    const product = useProductFromRouteData()
 
-    useEffect(() => {
-        (async function fetchProduct() {
-            if (productId > 0) {
-                const product = await getProductById(productId)
-                setProduct(product)
-            }
-            else {
-                setProduct(null)
-            }
-        })().catch(console.error)
-    }, [product])
-
-    if (product === null) { return }
+    if (product === null) { return <div className="pdp-content">Product not found</div> }
     return (
         <div className="pdp-content">
             <div>
@@ -43,4 +30,17 @@ export function PdpContent() {
             </div>
         </div>
     )
+}
+
+/**
+ * Gets the loaded product. Returns `null` if the product failed to load.
+ * 
+ * Because this function is relative to the current route, it makes sense to keep it in the routes component.
+ */
+export function useProductFromRouteData(): IProduct | null {
+    const result = useLoaderData()
+    if (isIProduct(result) || result === null) {
+        return result
+    }
+    return null
 }
