@@ -4,13 +4,13 @@ import { Header } from "home/Header";
 import { Footer } from "home/Footer";
 import { PdpContent } from "./PdpContent";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { loader } from "./routes/pdpContent";
+import { productLoader } from "./routes/pdpContent";
 
 const router = createBrowserRouter([
     {
         path: "/product/:id",
         element: <App />,
-        loader: loader
+        loader: productLoader
     }
 ]);
 

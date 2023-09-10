@@ -1,14 +1,15 @@
 import { getProductById } from "home/products";
-import { Params } from "react-router-dom";
+import { Params, useLoaderData } from "react-router-dom";
 import { IProduct } from "server"
 
-export async function loader(args: { params: Params<string> }): Promise<{ product: IProduct | null }> {
+/** Loads the product by its ID. Defaults to `null` if the product could not be loaded. */
+export async function productLoader(args: { params: Params<string> }): Promise<IProduct | null> {
     const routeParams = getPdpContentParams(args.params)
     if (routeParams !== null && routeParams.id > 0) {
         const product = await getProductById(routeParams.id)
-        return { product }
+        return product
     }
-    return { product: null }
+    return null
 }
 
 type PdpContentParams = {
