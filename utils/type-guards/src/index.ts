@@ -5,6 +5,7 @@ export function isIProduct(value: any): value is IProduct {
     return (
         isNotFalsyObject(value) &&
         typeof value.id === "number" &&
+        value.id > 0 &&
         typeof value.name === "string" &&
         typeof value.price === "number" &&
         typeof value.description === "string" &&
