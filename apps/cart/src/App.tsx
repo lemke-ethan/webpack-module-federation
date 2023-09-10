@@ -17,7 +17,12 @@ function App() {
         <div className="app">
             <Header subHeader="Cart" />
             <div className="content">
-                {/* TODO: first I was getting the app/home content, cleared all non-tracked files, rebuilt and now I am getting an empty response from the webpack dev server... */}
+                {/* 
+                    TODO: first I was getting the app/home content, cleared all non-tracked files, rebuilt and now I am 
+                    getting an empty response from the webpack dev server... 
+
+                    https://youtu.be/lKKsjpH09dU?feature=shared&t=3977
+                */}
                 <CartContent />
             </div>
             <Footer copyright="2023" />
