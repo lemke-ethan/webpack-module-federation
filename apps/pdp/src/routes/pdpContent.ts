@@ -4,7 +4,7 @@ import { IProduct } from "server"
 
 export async function loader(args: { params: Params<string> }): Promise<{ product: IProduct | null }> {
     const routeParams = getPdpContentParams(args.params)
-    if (routeParams !== null && routeParams.id < 1) {
+    if (routeParams !== null && routeParams.id > 0) {
         const product = await getProductById(routeParams.id)
         return { product }
     }
