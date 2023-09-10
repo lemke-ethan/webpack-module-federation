@@ -1,7 +1,8 @@
 require('dotenv').config()
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
-const { packageNamespace } = require("@types/home")
+const { packageNamespace: homePackageNamespace } = require("@types/home")
+const { packageNamespace: pdpPackageNamespace } = require("@types/pdp")
 
 module.exports = {
   output: {
@@ -39,13 +40,13 @@ module.exports = {
   plugins: [
     new ModuleFederationPlugin({
       // needs to meet js variable name restrictions
-      name: "pdp",
+      name: pdpPackageNamespace,
       filename: "remoteEntry.js",
       remotes: {
         // the key is used in the import statement for this package
         // the first part of the value needs to match the name of the mf plugin of home
         // the second part of the value needs to be the URL to the remoteEntry.js file
-        home: `${packageNamespace}@${process.env.PDP_HOME_REMOTE_ENTRY_URL}`
+        home: `${homePackageNamespace}@${process.env.PDP_HOME_REMOTE_ENTRY_URL}`
       },
       exposes: {
       },
