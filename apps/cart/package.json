@@ -41,6 +41,7 @@
         "react-dom": "^18.2.0",
         "react-router-dom": "^6.14.2",
         "remixicon": "^3.4.0",
-        "@wmf/type-guards": "workspace:*"
+        "@wmf/type-guards": "workspace:*",
+        "rxjs": "^7.8.1"
     }
 }
