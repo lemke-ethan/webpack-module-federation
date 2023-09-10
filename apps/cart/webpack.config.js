@@ -1,7 +1,9 @@
 require('dotenv').config()
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
-const { packageNamespace } = require("@types/home")
+const { packageNamespace: homePackageNamespace } = require("@types/home")
+const { packageNamespace: cartPackageNamespace } = require("@types/cart")
+const { packageNamespace: pdpPackageNamespace } = require("@types/pdp")
 
 module.exports = {
   output: {
@@ -45,7 +47,10 @@ module.exports = {
         // the key is used in the import statement for this package
         // the first part of the value needs to match the name of the mf plugin of home
         // the second part of the value needs to be the URL to the remoteEntry.js file
-        home: `${packageNamespace}@${process.env.CART_HOME_REMOTE_ENTRY_URL}`
+        home: `${homePackageNamespace}@${process.env.CART_HOME_REMOTE_ENTRY_URL}`,
+        // MF supports looping back on itself
+        cart: `${cartPackageNamespace}@${process.env.CART_SELF_REMOTE_ENTRY_URL}`,
+        pdp: `${pdpPackageNamespace}@${process.env.CART_PDP_REMOTE_ENTRY_URL}`
       },
       exposes: {
       },
