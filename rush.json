@@ -423,6 +423,10 @@
       "projectFolder": "types/cart"
     },
     {
+      "packageName": "@types/pdp",
+      "projectFolder": "types/pdp"
+    },
+    {
       "packageName": "server",
       "projectFolder": "backend/server"
     },
